@@ -16,4 +16,4 @@ class Solution:
         return result
 
     # O(log n)
-    
+    https://leetcode.com/problems/insert-interval/solutions/3173774/efficient-interval-insertion-a-binary-search-solution-with-o-log-n-time-complexity/

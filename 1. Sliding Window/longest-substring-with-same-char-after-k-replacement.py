@@ -13,7 +13,7 @@ class Solution:
             window_size = window_end - window_start + 1
             letters_to_change = window_size - most_freq_char
 
-            while window_end - window_start +1 - most_freq_char > k:
+            while letters_to_change > k:
                 char_freq[s[window_start]] -=1
                 if char_freq[s[window_start]] == 0:
                     del char_freq[window_start]
