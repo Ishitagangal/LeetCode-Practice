@@ -9,7 +9,7 @@ class Solution:
         if nums[right] > nums[0]:
             return nums[0]
 
-        while right >= left:
+        while left <= right:
             mid = left + (right - left) // 2
             # This point would be the point of change. From higher to lower value.
             if nums[mid] > nums[mid + 1]:
