@@ -5,7 +5,7 @@ class Node:
 
 class Solution:
     def findAllRecipes(self, recipes: List[str], ingredients: List[List[str]], supplies: List[str]) -> List[str]:
-        # make a group of  ingredients  to recipes
+        # make a graph of  ingredients  to recipes
         # zero degree nodes = supplies to start of
         graph = collections.defaultdict(Node)
         total_dependencies = 0
