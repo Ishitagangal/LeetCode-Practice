@@ -123,4 +123,37 @@ class Solution {
     }
 }
     
-
+//6 most booked meeting room
+class Solution {
+    public int mostBooked(int n, int[][] meetings) {
+        Arrays.sort(meetings, (m1, m2) -> Integer.compare(m1[0], m2[0]));
+        PriorityQueue<int[]> minHeap = new PriorityQueue<>((a, b) -> a[0] == b[0]? a[1] - b[1] : a[0] - b[0]);
+        int[] result = new int[n]; // keep track of num meetings in ith room
+        PriorityQueue<Integer> available = new PriorityQueue<Integer>();
+		for (int i = 0; i < n; i++)
+			available.add(i);
+        for(int[] meeting: meetings){
+            while(!minHeap.isEmpty() && minHeap.peek()[0] <= meeting[0]){
+                available.add(minHeap.poll()[1]);
+            }
+            int room = -1;
+            int[] heapVal = new int[2];
+            if(!available.isEmpty()){
+                room = available.poll();
+                minHeap.offer(new int[] {meeting[1], room });
+            }
+            else{
+                heapVal = minHeap.poll();
+                room = heapVal[1];
+                minHeap.offer(new int[] {heapVal[0] + meeting[1] - meeting[0], heapVal[1]});
+            }
+            result[room] +=1;
+        }
+        int maxIndex = 0;
+        for(int r =0; r<result.length; r++){
+            if(result[r] > result[maxIndex])
+                maxIndex = r;
+        }
+        return maxIndex;
+    }
+}
