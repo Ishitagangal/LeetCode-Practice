@@ -1,3 +1,15 @@
+# First part: when the right pointer is getting incremented we are decrementing
+#  the map count of char if it's part of 't' string. When we see that the map 
+#  count of that char after decrementing is positive/zero means that the right 
+#  ptr has found a useful char and hence we increment the 'count' variable 
+#  (which is keeping track of the number of useful chars)
+
+# Second part: when the left pointer is getting incremented we are essentially 
+# making the window smaller and giving back the chars to the map (i.e. 
+# incrementing the map count). If we find that for the particular char the map 
+# count has now become positive means that we actually gave back a useful char 
+# and hence the 'count' is to be decremented.
+
 from collections import Counter
 class Solution:
     def minWindow(self, s: str, t: str) -> str:

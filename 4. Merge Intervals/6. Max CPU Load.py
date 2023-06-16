@@ -1,5 +1,7 @@
-# Given an array of jobs with different time requirements, where each job consists of start time, end time and CPU load. 
-# The task is to find the maximum CPU load at any time if all jobs are running on the same machine.
+# Given an array of jobs with different time requirements, 
+# where each job consists of start time, end time and CPU load. 
+# The task is to find the maximum CPU load at any time if all jobs 
+# are running on the same machine.
 
 class Job:
     def __init__(self, start, end, cpu):

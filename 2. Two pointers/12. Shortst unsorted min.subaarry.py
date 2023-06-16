@@ -36,7 +36,8 @@ class Solution:
                 max_val = nums[i]
             else:
                 end = i 
-                 # if we come across a value smaller than nums[0] which was largest we saw, out of order needs to be sorted
+                 # if we come across a value smaller than nums[0] 
+                 # which was largest we saw, out of order needs to be sorted
         
         for i in range(len(nums)-1, -1, -1):
             if min_val >= nums[i]:

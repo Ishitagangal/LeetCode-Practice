@@ -4,6 +4,8 @@
 #         self.val = val
 #         self.next = next
 class Solution:
+# Input: head = [1,2,3,2]
+# Output: [1,3]
     # def deleteDuplicatesUnsorted(self, head: ListNode) -> ListNode:
     
     
