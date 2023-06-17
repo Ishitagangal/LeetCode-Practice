@@ -18,9 +18,10 @@ class Solution:
     def travel(self, cur):
         while cur:
             next_node = cur.next # have to store next node in case cur.next gets overridden to point to child node. will use this to connect the child level back to current level
-            if not next_node: tail = cur  # reached the last node in current level, assign it to 'tail' for return
+            if not next_node: 
+                tail = cur  # reached the last node in current level, assign it to 'tail' for return
 
-            if cur.child: # if the current node contains a child node, this if clause will handle the child node's level and any more child nodes that it spawns
+            if cur.child: # if the current node contai0ns a child node, this if clause will handle the child node's level and any more child nodes that it spawns
                 cur.child.prev = cur
                 cur.next = cur.child
 
