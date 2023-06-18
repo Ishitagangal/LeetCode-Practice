@@ -15,23 +15,24 @@ class Solution:
     # 2 * prefix[i] <= prefix[left_boundary]
     # 2 * prefix[right_boundary] <= prefix[-1] + prefix[i]
     # result ++ (k -j) such that minimum k and maximum j
+    # sum(0, i) <= sum(i + 1, j), and sum(i + 1, k - 1) < sum(k, n).
     def waysToSplit(self, nums:List[int]) -> int: # Linear O(n)
         prefix = [0]
         for num in nums:
             prefix.append(prefix[-1] + num)
         result = 0
         lower = upper = 0
-        for i in range(1, len(prefix) -2):
+        for i in range(1, len(nums)): # 0th index is 0 in prefix
             lower = max(lower, i+1)
-            while lower < len(prefix) -1 and prefix[lower] < 2* prefix[i]:
+            while lower < len(nums) and prefix[lower] < 2* prefix[i]:
                 lower +=1
             upper = max(upper, lower)
-            while upper<len(prefix)-1 and prefix[upper] <= (prefix[-1] - prefix[i])//2:
+            while upper<len(nums) and 2 * prefix[upper] <= (prefix[-1] + prefix[i]):
                 upper +=1
             result += upper - lower
         return result % (10**9+7)
 
-    def waysToSplit(self, nums: List[int]) -> int: # Binary search (O nlogn)
+    def waysToSplit2(self, nums: List[int]) -> int: # Binary search (O nlogn)
         prefix = [0]
         for num in nums:
             prefix.append(prefix[-1] + num)

@@ -1,5 +1,6 @@
 class Solution:
-    # For string, use a deque and start reading words and pushing them into the queue on the left side to reverse.
+    # For string, use a deque and start reading words and pushing them 
+    # into the queue on the left side to reverse.
 
     #for char array
     def reverseWords(self, s: List[str]) -> None:
