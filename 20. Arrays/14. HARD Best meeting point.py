@@ -13,8 +13,8 @@ class Solution:
         return result
     
     def get_median_coordinates(self, rows, cols) -> Tuple[int, int]:
-        rows.sort()
-        cols.sort()
+        # rows.sort() no need to sort since we collected rows and cols in sorted order
+        # cols.sort()
         row, col = rows[len(rows)//2], cols[len(cols)//2]
         return row, col
     
@@ -24,6 +24,10 @@ class Solution:
             for j in range(len(grid[0])):
                 if grid[i][j] == 1:
                     rows.append(i)
+        
+        for j in range(len(grid[0])):
+            for i in range(len(grid)):
+                if grid[i][j] == 1:
                     cols.append(j)
         return rows, cols
     
