@@ -12,9 +12,9 @@
 class Solution:
     # calculate prefix sums
     # prefix[i] <= prefix[j] - prefix[i] <= prefix[-1] - prefix[j]
-    # 2 * prefix[i] <= prefix[left_boundary]
-    # 2 * prefix[right_boundary] <= prefix[-1] + prefix[i]
-    # result ++ (k -j) such that minimum k and maximum j
+    # 2 * prefix[i] <= prefix[left_boundary] or j
+    # 2 * prefix[right_boundary] <= prefix[-1] + prefix[i] or k
+    # result ++ (k -j) such that maximum k and minimum j
     # sum(0, i) <= sum(i + 1, j), and sum(i + 1, k - 1) < sum(k, n).
     def waysToSplit(self, nums:List[int]) -> int: # Linear O(n)
         prefix = [0]

@@ -24,3 +24,27 @@ class Solution:
                     res.append(item)
         memo[s] = res
         return res
+
+## Word Break 1
+class Solution:
+    def wordBreak(self, s: str, wordDict: List[str]) -> bool:
+        memo = {}
+
+        def backtrack(s, wordDict, memo):
+            if s in memo:
+                return memo[s]
+            if s in wordDict:
+                return True
+            memo[s] = False
+            for i in range(1, len(s)):
+                prefix = s[:i]
+                suffix = s[i:]
+                if prefix in wordDict and backtrack(suffix,wordDict,memo):
+                    memo[s] = True
+                    break
+                elif suffix in wordDict and backtrack(prefix, wordDict, memo):
+                    memo[s] = True
+                    break
+            return memo[s]
+        return backtrack(s, wordDict, {})
+        

@@ -1,16 +1,19 @@
 class Solution:
-    def subsets(self, nums: List[int]) -> List[List[int]]:
-        def backtrack(index = 0, subset = []):
-            result.append(list(subset))
-            for i in range(index, len(nums)):
-                subset.append(nums[i])
-                backtrack(i+1, subset)
-                subset.pop()
-
+    def combinationSum3(self, k: int, n: int) -> List[List[int]]:
         result = []
-        backtrack()
+        def backtrack(target, combo, next_num):
+            if target == 0 and len(combo) == k:
+                result.append(combo[:])
+                return
+            
+            for i in range(next_num, 9):
+                combo.append(i+1)
+                backtrack(target - i - 1, combo, i+1)
+                combo.pop()
+        
+        backtrack(n, [], 0)
         return result
-    
+
 class Solution:
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:    
         result = []

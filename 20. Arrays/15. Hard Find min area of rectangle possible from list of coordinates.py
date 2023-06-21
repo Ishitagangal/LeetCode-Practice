@@ -16,7 +16,7 @@ class Solution:
         min_area = float(inf)
         for p1 in points:
             for p2 in points:
-                if (p1[0] == p2[0]) or (p1[1] == p2[1]): # cant make rectangle
+                if (p1[0] >= p2[0]) or (p1[1] >= p2[1]): # cant make rectangle
                     continue
                 if p2[1] in coordinate_map[p1[0]] and p1[1] in coordinate_map[p2[0]]:
                     min_area = min(min_area, abs(p1[0] - p2[0]) * abs(p1[1] - p2[1]))
