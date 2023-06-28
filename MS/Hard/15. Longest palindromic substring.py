@@ -22,6 +22,9 @@ class Solution:
             r += 1
         return s[l+1:r]
 
+
+
+
     def longestPalindromeDP(self, s: str) -> str:
         n = len(s)
         dp = [[False] * n for _ in range(n)]
