@@ -1,5 +1,8 @@
 // 1. Implement simple trie
-public class TrieNode {
+
+import java.util.HashMap;
+
+class TrieNode {
     char ch;
     HashMap<Character, TrieNode> children;
     boolean isEnd;

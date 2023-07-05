@@ -1,4 +1,12 @@
 // 1. Merge k sorted lists
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.PriorityQueue;
+import java.util.Queue;
+
 class Solution {
     public ListNode mergeKLists(ListNode[] lists) {
         if(lists == null || lists.length == 0) return null;
@@ -51,7 +59,7 @@ class Solution {
 //3. Find median in data stream
 class MedianFinder {
     PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Comparator.reverseOrder());
-    PriorityQueue<Integer> minHeap = new PriorityQueue();
+    PriorityQueue<Integer> minHeap = new PriorityQueue<>();
 
     public MedianFinder() {
     }
@@ -72,7 +80,7 @@ class MedianFinder {
 }
 
 //4 Maximize capital
-class Solution {
+class Solution4 {
     public int findMaximizedCapital(int k, int w, int[] profits, int[] capital) {
         PriorityQueue<Pair<Integer,Integer>> minCap = new PriorityQueue<>((a,b) -> (a.getKey() - b.getKey()));
         PriorityQueue<Integer> maxProfit = new PriorityQueue<>(Collections.reverseOrder());

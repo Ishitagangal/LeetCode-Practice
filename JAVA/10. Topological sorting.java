@@ -58,7 +58,7 @@ class Node{
             this.outnodes.add(n);
         }
     }
-class Solution {
+class Solution2 {
     public boolean canFinish(int numCourses, int[][] prerequisites) {
         HashMap<Integer, Node> graph = new HashMap<Integer, Node>();
         Queue<Integer> zeroDegrees = new LinkedList<>();
