@@ -69,6 +69,18 @@ public List<String> input(char c) {
         res.add((String) pq.poll().getKey());
         k--;
     }
+    // min heap
+    PriorityQueue<Map.Entry<String, Integer>> minQueue = new PriorityQueue<>((a,b) -> (a.getValue() == b.getValue()? b.getKey().compareTo(a.getKey()): a.getValue() - b.getValue()));
+    for(Map.Entry<String, Integer> e: curr.counts.entrySet()){
+        minQueue.offer(e);
+        if(minQueue.size() > k){
+            minQueue.poll();
+        }
+    }
+    List<String> res2 = new ArrayList<String>();
+    while(!minQueue.isEmpty()){
+        res2.add(0, minQueue.poll().getKey());
+    }
     return res;
 }
 }
