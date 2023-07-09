@@ -10,6 +10,19 @@ class Solution:
             if not visited[neighbor]:
                 self.dfs(neighbor, graph, visited, component)
     
+    def bfs(self, node, graph, visited, component): # OR
+        if visited[node]:
+            return
+        queue = deque([node])
+        visited[node] = True
+        while queue:
+            node = queue.popleft()
+            component.add(node)
+            for neighbor in graph[node]:
+                if not visited[neighbor]:
+                    visited[neighbor] = True
+                    queue.append(neighbor)
+    
     def accountsMerge(self, accounts: List[List[str]]) -> List[List[str]]:
         graph = collections.defaultdict(set)
         visited = {}

@@ -9,7 +9,7 @@ def populate_sibling_pointers(root):
         return
     
     head = root
-    last_node = root
+    last = root
 
     while head != None:
         if head.left:

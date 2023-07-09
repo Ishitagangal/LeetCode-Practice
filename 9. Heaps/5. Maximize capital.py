@@ -10,8 +10,8 @@ class Solution:
         
         for i in range(numProjects):
             while minCapital and minCapital[0][0] <= available:
-                capital, i = heapq.heappop(minCapital)
-                heapq.heappush(maxProfit, (-profits[i]))
+                capital, j = heapq.heappop(minCapital)
+                heapq.heappush(maxProfit, (-profits[j]))
                 
             if not maxProfit:
                 break

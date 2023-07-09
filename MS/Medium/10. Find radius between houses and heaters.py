@@ -3,16 +3,16 @@ class Solution:
         def binarySearch(house):
             left = 0
             right = len(heaters) -1
-            while left<right:
+            while left<=right:
                 mid = (right + left) // 2
                 if heaters[mid] < house:
                     left = mid + 1
                 elif heaters[mid] >= house:
-                    right = mid
-            return right
+                    right = mid - 1
+                
+            return left
 
         heaters.sort()
-        heaters = [float('-inf')] + heaters + [float('inf')]
         result = 0
         # i = 0
         for house in houses:

@@ -1,3 +1,4 @@
+# word search 2
 class TrieNode:
     def __init__(self, char=""):
         self.char = char
