@@ -11,5 +11,5 @@ class Solution:
                 prev_group = cur_group
                 cur_group = 1
             if prev_group >= cur_group:
-                result += 1# 0001, result = 1 "01", 00011, result = 2 "0011"...
+                result += 1# 0001, result = 1 -> "01", 00011, result = 2 -> "0011"...
         return result

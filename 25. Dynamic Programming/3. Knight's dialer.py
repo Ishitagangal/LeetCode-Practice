@@ -24,22 +24,22 @@ class Solution:
         return sum(prior_hop) % (10**9 + 7)
 
 # Recursive with memoization, O(n)
-# def count_sequences(start_position, num_hops):
-#     cache = {}
+def count_sequences(start_position, num_hops):
+    cache = {}
 
-#     def helper(position, num_hops):
-#         if (position, num_hops) in cache:
-#             return cache[ (position, num_hops) ]
+    def helper(position, num_hops):
+        if (position, num_hops) in cache:
+            return cache[ (position, num_hops) ]
 
-#         if num_hops == 0:
-#             return 1
+        if num_hops == 0:
+            return 1
 
-#         else:
-#             num_sequences = 0
-#             for neighbor in neighbors(position):
-#                 num_sequences += helper(neighbor, num_hops - 1)
-#             cache[ (position, num_hops) ] = num_sequences
-#             return num_sequences
+        else:
+            num_sequences = 0
+            for neighbor in neighbors(position):
+                num_sequences += helper(neighbor, num_hops - 1)
+            cache[ (position, num_hops) ] = num_sequences
+            return num_sequences
 
-#     res = helper(start_position, num_hops)
-#     return res
+    res = helper(start_position, num_hops)
+    return res

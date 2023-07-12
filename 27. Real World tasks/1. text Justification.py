@@ -1,4 +1,8 @@
+from typing import List
 class Solution:
+    def __init__(self):
+        pass
+
     def fullJustify(self, words: List[str], maxWidth: int) -> List[str]:
         def get_words(i):
             current_line = []
@@ -12,6 +16,7 @@ class Solution:
             return current_line
         
         def create_line(line, i):
+            
             base_length = -1
             for word in line:
                 base_length += len(word) + 1
@@ -30,7 +35,7 @@ class Solution:
 
             for j in range(word_count):
                 line[j] += " " * spaces_per_word
-
+            print(line)
             return " ".join(line)
 
         ans = []
@@ -42,3 +47,9 @@ class Solution:
             ans.append(create_line(current_line, i))
 
         return ans
+
+words = ["This", "is", "an", "example", "of", "text", "justification."]
+width =16
+obj = Solution()
+output = obj.fullJustify(words, width)
+print(output)
